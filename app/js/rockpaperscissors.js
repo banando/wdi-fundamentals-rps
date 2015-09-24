@@ -4,7 +4,7 @@
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -26,7 +26,9 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    if (move===null)getInput;
+    if (move===null){
+        getInput;
+    }
     else return move;
 }
 
@@ -34,13 +36,15 @@ function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    if (move===null)randomPlay();
+    if (move===null){
+        randomPlay();
+    }
     else return move;
 }
 
 function getWinner(playerMove,computerMove) {
     var winner;
-    if (playerMove=='rock'){
+    if (playerMove==='rock'){
         switch (computerMove){
             case 'paper':
             winner = 'computer';
@@ -52,7 +56,7 @@ function getWinner(playerMove,computerMove) {
             winner = 'tie';
         }
     }
-    else if (playerMove=='paper'){
+    else if (playerMove==='paper'){
         switch(computerMove){
             case 'scissors':
             winner='computer';
@@ -97,12 +101,12 @@ function playToFive() {
         compChoice=randomPlay();
         winner = getWinner(playerChoice,compChoice);
         console.log("player chose "+playerChoice+" and computer chose "+ compChoice);
-        if (winner=='tie'){
+        if (winner==='tie'){
             console.log("It's a tie.");
         }
         else{
         console.log("The winner is " + winner);
-        if(winner=='player'){
+        if(winner==='player'){
             playerWins +=1;
         }
         else {
@@ -117,4 +121,3 @@ function playToFive() {
     return [playerWins, computerWins];
 }
 playToFive();
-console.log(playerWins + ' '+ computerWins);
